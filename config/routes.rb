@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
+  get 'recipes/index'
+
+  get 'recipes/create'
+
+  get 'recipes/new'
+
+  get 'recipes/edit'
+
+  get 'recipes/update'
+
+  get 'recipes/show'
+
+  get 'recipes/destroy'
+
   root 'page#home'
   get '/page' ,:to => 'page#home'
   get 'page/home'
   
-
+  resources :recipes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

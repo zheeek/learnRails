@@ -18,7 +18,7 @@ $navbar-default-color: $light-orange;
     color:#999;
 }
 body{
-    padding-top:45px;
+    padding-top:70px;
 }
 .nav_item{
     float:left;
@@ -28,7 +28,15 @@ body{
 .center{
     text-align:center;
 }
-h1,h2,h3,h4{
+h1,h2,h3{
+    line-height:1;
+    text-align:center;
+    color:#999;
+}
+h3{
+    line-height:1;
+}
+h4{
     line-height:1;
 }
 .navbar{
@@ -44,4 +52,19 @@ h3{
 }
 footer{
     font-size:10px;
+}
+.gravatar{
+    border-radius:10px;
+}
+.chef-info{
+    margin-top:10px;
+}
+input, textarea , .uneditform{
+    margin-top:10px;
+    border:1px solid #ededed;
+    width:100%;
+    border-radius:4px;
+}
+.main p{
+    font-size:1.3em;
 }

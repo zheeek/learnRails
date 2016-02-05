@@ -1,0 +1,22 @@
+<%= render 'shared/page_title' , title: @recipe.name%>
+
+<div class="row">
+    <div class="col-md-4 pull-right center">
+        <%= gravatar_for @recipe.chef , size:200%>
+        <p>
+           
+            <h5><%= @recipe.chef.name%>  : ساخته شده توسط   <h5>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <%= link_to "Edit this post" ,edit_recipe_path(@recipe) , class:"btn btn-success pull-right" %>
+        <h3><%= @recipe.summery%></h3>
+        <div class="well">
+            <strong> steps :</strong>
+        <p>
+            <%= simple_format(@recipe.description) %>
+            </p>
+        </div>
+    </div>
+</div>
+<h5><%= link_to "back to all Recipe" , recipes_path , class:"btn btn-warning btn-small" %></h5?
