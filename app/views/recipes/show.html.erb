@@ -11,6 +11,8 @@
     <div class="col-md-8">
         <%= link_to "Edit this post" ,edit_recipe_path(@recipe) , class:"btn btn-success pull-right" %>
         <h3><%= @recipe.summery%></h3>
+     <%= image_tag @recipe.picture.url , size: "250x150", class:"gravatar" if @recipe.picture? %>
+
         <div class="well">
             <strong> steps :</strong>
         <p>
