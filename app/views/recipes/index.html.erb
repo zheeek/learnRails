@@ -14,9 +14,19 @@
         <h4><%= link_to recipe.name , recipe_path(recipe) %></h4>
         <p> <%= recipe.summery %></p>
         <p>
-        <span class="quiet"> <small> <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+        <span class="quiet"> <small>created at : <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
         </p>
-        
+        <p>
+        <span class="quiet"> <small>updated : <%= time_ago_in_words(recipe.updated_at) %> ago</small></span>
+        </p>
+        <div class="pull-right">
+            <%=link_to like_recipe_path(recipe, like: true), method: :post do%>
+            <i class="glyphicon glyphicon-thumbs-up"></i><%= recipe.total_likes_thubms_up%>
+            <%end %>&nbsp;&nbsp;
+            <%=link_to like_recipe_path(recipe, like: false), method: :post do%>
+            <i class="glyphicon glyphicon-thumbs-down"></i><%= recipe.total_likes_thubms_down%>
+            <%end %>&nbsp;
+            </div>
     </div>
    <div class="col-md-4">
        <%= image_tag recipe.picture.url , size: "250x150", class:"gravatar" if recipe.picture? %>
@@ -24,3 +34,4 @@
 </div>
   <hr>
 <% end%>
+<%= will_paginate%>

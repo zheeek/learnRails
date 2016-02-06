@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.paginate(:page => params[:page], :per_page => 5)
   end
 
   def create
@@ -37,7 +37,18 @@ class RecipesController < ApplicationController
   def show
     @recipe =Recipe.find(params[:id])
   end
-
+  def like
+    #binding.pry
+    @recipe = Recipe.find(params[:id])
+    like = Like.create(like: params['like'] , chef: Chef.first ,recipe: @recipe)
+    if like.valid?
+      flash[:success]  = 'thank you for voting'
+      redirect_to :back
+    else
+      flash[:danger]  = 'you can vote once for a recipe'
+      redirect_to :back
+    end
+  end
   def destroy
   end
   private
