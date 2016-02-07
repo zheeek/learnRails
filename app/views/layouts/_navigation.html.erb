@@ -5,7 +5,23 @@
     <div class="nav_item">
     <%= link_to "MyRecepies","", class: "btn btn-default btn-warning" %>
     <%= link_to "MyRecepies","", class: "btn btn-default btn-warning" %>
-    <%= link_to "New Recipe", new_recipe_path, class: "btn btn-default btn-warning" %>
+    <% if logged_in? %>
+    <%= link_to "New Recipe",new_recipe_path, class: "btn btn-default btn-warning" %>
+    <div class="dropdown pull-right drop">
+    <%= link_to "#" , class:"btn btn-default dropdown-toggle", "data-toggle"=>"dropdown"  do%>
+    <%= current_user.name %>  <span class="caret"></span>
+     <%end%>
+      <ul class="dropdown-menu" >
+        <li><%= link_to "Profile" , chef_path(current_user)%></li>
+        <li><%= link_to "Edit Profile" , edit_chef_path(current_user)%></li>
+        <li  class="divider"></li>
+        <li><%= link_to "Log out", logout_path  %></li>
+      </ul>
+    </div>
+     
+  <%else %>
+        <%= link_to "Log in", login_path, class: "btn btn-default btn-success" %>
+  <% end %>
     </div>
     
   </div>

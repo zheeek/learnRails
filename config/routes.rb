@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
+  
 
-  get 'recipes/create'
+  get 'logins/new'
 
-  get 'recipes/new'
+  get 'logins/create'
 
-  get 'recipes/edit'
+  get 'logins/destroy'
 
-  get 'recipes/update'
+  get 'chefs/new'
 
-  get 'recipes/show'
+  get 'chefs/create'
 
-  get 'recipes/destroy'
+  get 'chefs/edite'
+
+  get 'chefs/update'
+
+  get 'chefs/destroy'
+
+  get 'chefs/index'
 
   root 'page#home'
   get '/page' ,:to => 'page#home'
@@ -22,6 +28,12 @@ Rails.application.routes.draw do
       post  'like' 
     end
   end
+  get '/register' , to:'chefs#new'
+  resources :chefs , except:[:new]
+  
+  get '/login', :to => 'logins#new'
+  post '/login', :to => 'logins#create'
+  get '/logout', :to => 'logins#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
