@@ -3,7 +3,7 @@ class LoginsController < ApplicationController
   def new
     
   end
-
+ 
   def create
     chef = Chef.find_by(email: params['email'])
     if chef && chef.authenticate(params['password'])
